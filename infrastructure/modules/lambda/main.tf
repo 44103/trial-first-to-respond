@@ -52,7 +52,7 @@ data "archive_file" "_" {
 resource "aws_lambda_function" "_" {
   function_name    = local.name
   role             = aws_iam_role._.arn
-  runtime          = "nodejs18.x"
+  runtime          = "nodejs14.x"
   handler          = "index.handler"
   filename         = data.archive_file._.output_path
   source_code_hash = data.archive_file._.output_base64sha256

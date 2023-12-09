@@ -1,11 +1,8 @@
 variable "commons" {}
-variable "name" {
-  description = "resource name"
-}
-variable "lambda" {
-  default = null
-}
-variable "subscriptions" {}
+variable "name" {}
+variable "publish" {}
+variable "state_machine" {}
+variable "policy_statements" {}
 
 locals {
   name = join("_", [
@@ -14,4 +11,5 @@ locals {
     var.commons.service,
     var.commons.project
   ])
+  iam_name = join("_", ["sfn", local.name])
 }
